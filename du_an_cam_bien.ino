@@ -8,8 +8,10 @@
 
 DHT dht(DHTPIN, DHTTYPE);
 
-const char* ssid = "Ong Thuong";
-const char* password = "123456789@";
+// tên wifi
+const char* ssid = "---------";        
+// mật khẩu wifi
+const char* password = "-----------";
 
 void setup()
 {
@@ -17,8 +19,10 @@ void setup()
   WiFi.begin(ssid, password);
   dht.begin();
   Serial.println("connecting to WiFi ");
+  // kết nối lại wifi
   while(WiFi.status() != WL_CONNECTED)
   {
+    WiFi.begin(ssid, password);
     Serial.print(".");
     delay(1000);
   }
@@ -33,13 +37,13 @@ void loop()
 {
   float temperature = dht.readTemperature();
   float humidity = dht.readHumidity();
-
+  // nếu cảm biến hoạt động sai hoặc không hoạt động sẽ chạy lại
   if(isnan(temperature) || isnan(humidity))
   {
     Serial.println("error sensor");
     return;
   }
-  
+  // kết nối lại wifi khi bị ngắt kết nối
   if(WiFi.status() != WL_CONNECTED)
   {
     WiFi.begin(ssid, password);
@@ -52,7 +56,7 @@ void loop()
     Serial.println();
     Serial.println("Reconnection successful");
   }
-
+  // gửi giá trị của cảm biến về thingspeak
   if(WiFi.status() == WL_CONNECTED)
   {
     HTTPClient http;
