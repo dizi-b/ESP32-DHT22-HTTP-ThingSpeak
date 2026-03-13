@@ -11,9 +11,13 @@ Chức năng:
 - Gửi dữ liệu lên ThingSpeak
 
 ## Phần cứng sử dụng
-
-- ESP32 Development Board
-- Cảm biến nhiệt độ và độ ẩm DHT11
+- ESP32 DevKit V1
+- Cảm biến nhiệt độ và độ ẩm DHT22
 - Breadboard
-- Dây jumper
-- Máy tính để lập trình và nạp chương trình
+- Dây kết nối (jumper wires)
+
+## Phần mềm sử dụng
+- Arduino IDE
+- Thư viện DHT sensor library
+- Thư viện WiFi (ESP32)
+- Nền tảng IoT ThingSpeak để hiển thị dữ liệu
