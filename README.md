@@ -9,3 +9,11 @@ Chức năng:
 - Đọc nhiệt độ và độ ẩm từ DHT22
 - Kết nối WiFi
 - Gửi dữ liệu lên ThingSpeak
+
+## Phần cứng sử dụng
+
+- ESP32 Development Board
+- Cảm biến nhiệt độ và độ ẩm DHT11
+- Breadboard
+- Dây jumper
+- Máy tính để lập trình và nạp chương trình
